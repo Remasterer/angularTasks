@@ -1,0 +1,21 @@
+<ul class="nav nav-tabs align-items-center pl-4">
+  Last works >>>
+  <li class="nav-item ml-3">
+    <a class="nav-link" [routerLink]="['words-check']" routerLinkActive="active">Cenzor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['task-list']" routerLinkActive="active">Task</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['users-list']" routerLinkActive="active">Users</a>
+  </li>
+  <li class="nav-item ml-auto">
+    <a class="nav-link" [routerLink]="['home']" routerLinkActive="active" style="color: red;">Back to >>> Home</a>
+  </li>
+</ul>
+
+<div class="container" style="margin-top: 15vh">
+  <router-outlet></router-outlet>
+</div>
+
+

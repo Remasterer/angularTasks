@@ -1,0 +1,38 @@
+<div>
+  <h2>Plan your day!</h2>
+  <h3>User:Michael Semkiv.Count of Task {{todoTasks.length}}</h3>
+  <hr>
+  <div class="row justify-content-between">
+    <input type="text" class="form-control w-75" [(ngModel)]="newTaskName">
+    <input type="button" class="btn btn-success" style="width: 20%" value="Add" (click)="addTask()">
+  </div>
+  <table class="table mt-4">
+    <thead>
+      <th>#</th>
+      <th>Task</th>
+      <th>Check</th>
+      <th>DONE/IN PROGRESS</th>
+      <th>Edit</th>
+      <th>DELETE</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of todoTasks; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{task.task}}</td>
+        <td><input type="checkbox" class="form-check" [checked]="task.completed" (click)="taskStatusChange(i)"></td>
+        <td [ngStyle]="{'color': task.completed ? 'red' : 'green' }">{{task.completed ? 'Done' : ' In PROGRESS' }}</td>
+        <td><input type="button" class="btn btn-warning" value="Edit" (click)="editTask(i)" ></td>
+        <td><input type="button" class="btn btn-danger" value="Delete" (click)="deleteTask(i)" [disabled]="(!task.completed && !isTaskEditing)"></td>
+      </tr>
+
+    <tr *ngIf="isTaskEditing" style="background-color: #abaaab" class="ml-auto">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><input type="text" [(ngModel)]="editedTaskName" name="editedTaskName" ></td>
+      <td><input type="button" value="save" class="btn btn-success" (click)="saveEditedTask()"></td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

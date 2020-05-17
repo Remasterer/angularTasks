@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-center">
+<form class="form w-50">
+  <div class="row">
+    <strong>Bad words:</strong>
+    <span *ngFor="let badWord of badWords">
+      {{badWord+','}}
+    </span>
+  </div>
+  <div class="row">
+    <input type="text" class="form-control w-75 border" [(ngModel)]="badWordInput" name="badWordInput" [ngClass]="{'border-danger':badWordInputEmpty}" [placeholder]="badWordInputEmpty ?  'Please write a word' : 'word here...' ">
+    <input type="button" value="Add" class="ml-2 btn btn-warning" (click)="addBadWord()">
+    <input type="button" value="Reset"  class="ml-2 btn btn-danger" (click)="resetBadWords()">
+  </div>
+  <div class="row mt-4">
+    <textarea class="form-control w-75 border" cols="30" rows="10" [(ngModel)]="userText" name="userText" [ngClass]="{}" [ngClass]="{'border-danger':userTextEmpty}" [placeholder]="userTextEmpty ?  'Please write a text' : 'text here...' "></textarea>
+  </div>
+  <div class="row">
+    <input type="button" value="Cenzor" name="text" class="btn btn-success w-100 mt-2" (click)="cenzorBadWords() ">
+  </div>
+</form>
+</div>
